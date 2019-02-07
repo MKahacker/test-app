@@ -1,0 +1,23 @@
+%h1 Listing moods
+
+%table
+  %thead
+    %tr
+      %th Short
+      %th Note
+      %th
+      %th
+      %th
+
+  %tbody
+    - @moods.each do |mood|
+      %tr
+        %td= mood.short
+        %td= mood.note
+        %td= link_to 'Show', mood
+        %td= link_to 'Edit', edit_mood_path(mood)
+        %td= link_to 'Destroy', mood, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Mood', new_mood_path

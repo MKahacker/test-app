@@ -1,0 +1,16 @@
+= form_for @mood do |f|
+  - if @mood.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@mood.errors.count, "error")} prohibited this mood from being saved:"
+      %ul
+        - @mood.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :short
+    = f.text_area :short
+  .field
+    = f.label :note
+    = f.text_field :note
+  .actions
+    = f.submit 'Save'
